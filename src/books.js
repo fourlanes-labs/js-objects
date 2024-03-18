@@ -157,19 +157,26 @@ const dictionary = {
 };
 
 function booksByAuthor(dictionary) {
-  // Your code here:
-  const books = [];
-  for (const author in dictionary) {
-    const authorBooks = dictionary[author];
-    authorBooks.forEach((book) => {
-      const [title, pages] = book;
-      books.push({
-        title: title,
-        pages: pages,
-        author: author,
-      });
-    });
+  if (!dictionary || typeof dictionary !== "object") {
+    return []; 
   }
+  const books = [];
+
+  for (const author in dictionary) {
+    if (Object.prototype.hasOwnProperty.call(dictionary, author)) {
+      const authorBooks = dictionary[author];
+
+      authorBooks.forEach((book) => {
+        const [title, pages] = book;
+        books.push({
+          title: title,
+          pages: pages,
+          author: author,
+        });
+      });
+    }
+  }
+
   return books;
 }
 
