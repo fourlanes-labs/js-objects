@@ -120,8 +120,6 @@ booksArray.forEach((book) => {
   delete book.details.language;
 });
 
-console.log(booksArray);
-
 // Iteration 4 | Estimated Reading Time
 // Your code here:
 
@@ -130,7 +128,6 @@ booksArray.forEach((book) => {
 
   book.readingTime = readingTime;
 
-  console.log(booksArray);
 });
 
 // Bonus: Iteration 5 | Books Dictionary
